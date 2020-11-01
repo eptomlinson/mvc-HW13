@@ -1,18 +1,28 @@
 // dependencies
 const express = require('express');
-const { delBurger } = require('./controllers/burgersControllers');
-const app= express();
-const PORT = process.env.PORT || 8080;
+const exphbs = require('express-handlebars');
+
 const db = require('./models');
+
+const routes = require('./models');
+
+const app= express();
+
+const PORT = process.env.PORT || 8080;
+
+const { delBurger } = require('./controllers/burgersControllers');
 
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}));
+app.use(express.json());
+
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-app.use(apiRoutes);
+app.use(routes);
 
-delBurger.sequelize.sync().then(function(){
+db.sequelize.sync().then(function(){
     app.listen(PORT, function(){
-        log("Server listening on http:")
+        log("Server listening on http://localhost:" + PORT);
     });
 });

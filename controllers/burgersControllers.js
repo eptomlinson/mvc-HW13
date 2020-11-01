@@ -1,10 +1,13 @@
-const db = require('./models');
+const db = require('../models');
 
 module.exports = {
     smashAllBurgs: function(req, res){
         db.Burger.find({}).then(function(dbBurgerData) {res.json(dbBurgerData)})
     },
     smashSpecificBurger: function(req, res) {
+
+    },
+    addBurger: function(req, res){
 
     },
     delBurger: function(req, res){
