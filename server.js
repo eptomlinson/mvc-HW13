@@ -16,13 +16,13 @@ if (process.env.JAWSDB_URL){
 
 const db = require('./models');
 
-const routes = require('./models');
+const routes = require('./routes/htmlRoutes');
 
 const app= express();
 
 const PORT = process.env.PORT || 8080;
 
-const { delBurger } = require('./controllers/burgersControllers');
+// const { delBurger } = require('./controllers/burgersControllers');
 
 app.use(express.static("public"));
 app.use(express.urlencoded({extended:true}));
@@ -33,8 +33,8 @@ app.set("view engine", "handlebars");
 
 app.use(routes);
 
-db.sequelize.sync().then(function(){
+// db.sequelize.sync().then(function(){
     app.listen(PORT, function(){
-        log("Server listening on http://localhost:" + PORT);
+        console.log("Server listening on http://localhost:" + PORT);
     });
-});
+// });

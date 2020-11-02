@@ -1,13 +1,14 @@
 <h1>Hamburger Time</h1>
 
 <ul>
-    {{ #each burgers }}
-    {{ #if devoured }}
+    {{#each burgers}}
+    {{#unless devoured}}
         <li>
-            Name: {{ name }}
+            Name: {{ burger_name }}
             <button class ="remake" data-burger-id={{id}}>
                 Regurgitate Burger
             </button>
         </li>
-    {{ /each }}
+        {{/unless}}
+    {{/each}}
 </ul>
