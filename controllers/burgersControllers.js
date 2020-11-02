@@ -5,7 +5,7 @@ module.exports = {
         db.Burger.find({}).then(function(dbBurgerData) {res.json(dbBurgerData)})
     },
     smashSpecificBurger: function(req, res) {
-
+        db.Burger.find({id}).then(function(dbBurgerData){res.json(dbBurgerData)})
     },
     addBurger: function(req, res){
 
@@ -16,7 +16,7 @@ module.exports = {
     updBurger: function(req, res){
 
     },
-}
+};
 
 // all burgers
 // get burger by id?
