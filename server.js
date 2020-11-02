@@ -1,6 +1,7 @@
 // dependencies
 const express = require('express');
 const exphbs = require('express-handlebars');
+const mysql = require('mysql');
 
 const db = require('./models');
 
